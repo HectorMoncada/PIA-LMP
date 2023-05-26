@@ -1,5 +1,4 @@
-"""
-URL configuration for ecommerce project.
+"""URL configuration for ecommerce project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -26,5 +25,4 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('store/', include('store.urls')),
     path('cart/', include('carts.urls')),
-    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

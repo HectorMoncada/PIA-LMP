@@ -29,7 +29,7 @@
 <div class="row align-items-center">
   <div class="col-lg-2 col-md-3 col-6">
     <a href="{% url 'home' %}" class="brand-wrap">
-      <img class="logo" src="{% static './images/logo01.jpg' %}">
+      <img class="logo" src="{% static 'C:\Obsidian\PIA-LMP\ecommerce\static\images\OBSIDIAN (3) (1).jpg' %}">
     </a> <!-- brand-wrap.// -->
   </div>
   <div class="col-lg col-sm col-md col-6 flex-grow-0">
@@ -38,7 +38,7 @@
         <i class="fa fa-bars"></i> Categorias
       </button>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="{% url 'store' %}">Todos</a>
+          <a class="dropdown-item" href="{% url 'store' %}">Todos</a>
         {% for category in links %}
         <a class="dropdown-item" href="{{ category.get_url }}">{{category.category_name}}</a>
         {% endfor %}
