@@ -12,20 +12,34 @@ def store(request, category_slug=None):
 
     if category_slug != None:
         categories = get_object_or_404(Category, slug=category_slug)
+<<<<<<< HEAD
         products = Product.objects.filter(category=categories, is_available=True)
         paginator = Paginator(products, 5)
+=======
+        products = Product.objects.filter(category=categories, is_available=True).order_by('id')
+        paginator = Paginator(products, 3)
+>>>>>>> 0afb77cd8c389fc020fa6622693f504778a742e7
         page = request.GET.get('page')
         paged_products = paginator.get_page(page)
         product_count = products.count()
     else:
+<<<<<<< HEAD
         products = Product.objects.all().filter(is_available=True)
         paginator = Paginator(products, 5)
+=======
+        products = Product.objects.all().filter(is_available=True).order_by('id')
+        paginator = Paginator(products, 3)
+>>>>>>> 0afb77cd8c389fc020fa6622693f504778a742e7
         page = request.GET.get('page')
         paged_products = paginator.get_page(page)
         product_count = products.count()
 
     context = {
+<<<<<<< HEAD
         'products' : paged_products,
+=======
+        'products': paged_products,
+>>>>>>> 0afb77cd8c389fc020fa6622693f504778a742e7
         'product_count': product_count,
     }
 
@@ -47,12 +61,23 @@ def product_detail(request, category_slug, product_slug):
     return render(request, 'store/product_detail.html', context)
 
 
+<<<<<<< HEAD
 def search(request):
     if 'keyword' in request.GET:
         keyword = request.Get['keyword']
         if keyword:
             products = Product.objects.order_by('-created_date').filter(Q(description__icontains=keyword) | Q(product_name__icontains=keyword))
             product_count = products.count()
+=======
+
+def search(request):
+    if 'keyword' in request.GET:
+        keyword = request.GET['keyword']
+        if keyword:
+            products = Product.objects.order_by('-created_date').filter(Q(description__icontains=keyword) | Q(product_name__icontains=keyword))
+            product_count = products.count()
+
+>>>>>>> 0afb77cd8c389fc020fa6622693f504778a742e7
     context = {
         'products': products,
         'product_count': product_count,

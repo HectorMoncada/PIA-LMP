@@ -126,7 +126,11 @@
         </header><!-- sect-heading -->
 
         <div class="row">
+<<<<<<< HEAD
 
+=======
+          {% if products %}
+>>>>>>> 0afb77cd8c389fc020fa6622693f504778a742e7
           {% for product in products %}
           <div class="col-md-4">
             <figure class="card card-product-grid">
@@ -147,6 +151,13 @@
             </figure>
           </div> <!-- col.// -->
           {% endfor %}
+          {%else%}
+            <<div>
+                <<h2>No se encontraron resultados.</h2>
+            </div>
+
+          {% endif %}
+
 
         </div> <!-- row end.// -->
 
@@ -159,20 +170,30 @@
             {% if products.has_previous %}
             <li class="page-item"><a class="page-link" href="?page={{products.previous_page_number}}">Anterior</a></li>
             {% else %}
+<<<<<<< HEAD
             <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
             {% endif %}
+=======
+              <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
+            {% endif%}
+>>>>>>> 0afb77cd8c389fc020fa6622693f504778a742e7
 
 
             {% for i in products.paginator.page_range %}
 
               {% if products.number == i %}
+<<<<<<< HEAD
                 <li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
+=======
+              <li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
+>>>>>>> 0afb77cd8c389fc020fa6622693f504778a742e7
               {% else %}
                 <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
               {% endif %}
 
             {% endfor %}
 
+<<<<<<< HEAD
             {% if products.has_next %}
               <li class="page-item"><a class="page-link" href="?page={{products.next_page_number}}">Siguiente</a></li>
             {% else %}
@@ -181,6 +202,16 @@
 
           </ul>
           {% endif %}
+=======
+            {% if products.has_next%}
+            <li class="page-item"><a class="page-link" href="?page={{products.next_page_number}}">Siguiente</a></li>
+            {% else %}
+              <li class="page-item disable"><a class="page-link" href="#">Siguiente</a></li>
+            {% endif %}
+          </ul>
+          {% endif %}
+
+>>>>>>> 0afb77cd8c389fc020fa6622693f504778a742e7
         </nav>
 
       </main> <!-- col.// -->
