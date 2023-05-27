@@ -3,7 +3,6 @@
 
 
 
-
 {% block content %}
 
 <section class="section-content padding-y bg">
@@ -11,10 +10,10 @@
 
     <!-- ============================ COMPONENT 1 ================================= -->
     {% if not cart_items %}
-      <h2 class="text-center">El carrito de compras esta vacio</h2>
+      <h2 class="text-center">El carrito de compras está vacío </h2>
       <br>
       <div class="text-center">
-          <a href="{% url 'store' %}" class="btn btn-primary">Continua Comprando</a>
+          <a href="{% url 'store' %}" class="btn btn-primary">Continua comprando</a>
       </div>
     {% else %}
     <div class="row">
@@ -35,7 +34,7 @@
     <tr>
         <td>
             <figure class="itemside align-items-center">
-                <div class="aside"><img src="{{cart_item.product.images.url}}" class="img-sm"></div>
+                <div class="aside"><img src="{{ cart_item.product.images.url }}" class="img-sm"></div>
                 <figcaption class="info">
                     <a href="{{ cart_item.product.get_url }}" class="title text-dark">{{ cart_item.product.product_name }}</a>
                     <p class="text-muted small">
@@ -78,12 +77,16 @@
         </td>
         <td>
             <div class="price-wrap">
-                <var class="price">$ {{ cart_item.sub_total }}</var>
-                <small class="text-muted"> ${{cart_item.product.price}} </small>
+                <var class="price">${{ cart_item.sub_total }}</var>
+                <small class="text-muted">${{ cart_item.product.price }} </small>
             </div> <!-- price-wrap .// -->
         </td>
         <td class="text-right">
+<<<<<<< HEAD
+        <a href="{% url 'remove_cart_item' cart_item.product.id %}" class="btn btn-danger"> Eliminar</a>
+=======
         <a href="{% url 'remove_cart_item' cart_item.product.id cart_item.id %}" class="btn btn-danger"> Eliminar </a>
+>>>>>>> 0afb77cd8c389fc020fa6622693f504778a742e7
         </td>
     </tr>
     {% endfor %}
@@ -105,11 +108,11 @@
                 </dl>
                 <dl class="dlist-align">
                   <dt>Impuesto:</dt>
-                  <dd class="text-right"> ${{ tax }}</dd>
+                  <dd class="text-right">$ {{ tax }}</dd>
                 </dl>
                 <dl class="dlist-align">
                   <dt>Total:</dt>
-                  <dd class="text-right text-dark b"><strong>$ {{grand_total}}</strong></dd>
+                  <dd class="text-right text-dark b"><strong>${{ grand_total }}</strong></dd>
                 </dl>
                 <hr>
                 <p class="text-center mb-3">
@@ -127,7 +130,7 @@
     <!-- ============================ COMPONENT 1 END .// ================================= -->
     {% endif %}
     </div> <!-- container .//  -->
-</section>
+    </section>
     <!-- ========================= SECTION CONTENT END// ========================= -->
 
 {% endblock %}
