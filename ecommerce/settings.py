@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-pr!6b%b#s^c5yq7kbph_0y#=qgqt(!^5tbz&g@x1sx+hy^0p3='
+SECRET_KEY = 'django-insecure-cqo$es@&l*het@u5hee%)3r8#@hq&=tl0mo+fj6=_$yc(^c!s8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -129,6 +129,8 @@ STATIC_ROOT = BASE_DIR /'static'
 STATICFILES_DIRS = [
     'ecommerce/static'
 ]
+
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR /'media'
