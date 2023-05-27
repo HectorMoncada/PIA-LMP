@@ -15,18 +15,6 @@ def _cart_id(request):
 def add_cart(request, product_id):
     product = Product.objects.get(id=product_id)
 
-    try:
-        cart_item = CartItem.objects.get(product=product, cart=cart)
-        cart_item.quantity +=1
-        cart_item.save()
-    except CartItem.DoesNotExist:
-        cart_item = CartItem.objects.create(
-            product = product,
-            quantity = 1,
-            cart = cart
-        )
-        cart_item.save()
-    return redirect('cart')
     current_user = request.user
 
     if current_user.is_authenticated:
@@ -181,6 +169,7 @@ def remove_cart_item(request, product_id, cart_item_id):
     cart_item.delete()
     return redirect('cart')
 
+
 def cart(request, total=0, quantity=0, cart_items=None):
     tax = 0
     grand_total = 0
@@ -205,12 +194,8 @@ def cart(request, total=0, quantity=0, cart_items=None):
         'quantity': quantity,
         'cart_items': cart_items,
         'tax' : tax,
-        'grand_total': grand_total
+        'grand_total': grand_total,
     }
-
-
-
-
 
     return render(request, 'store/cart.html', context)
 
