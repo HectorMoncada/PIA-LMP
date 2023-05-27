@@ -172,3 +172,5 @@ cython_debug/
 #.idea/
 
 # End of https://www.toptal.com/developers/gitignore/api/django
+ecommerce/static/images/logo01.png
+ecommerce/static/images/OBSIDIAN (3) (1).jpg
